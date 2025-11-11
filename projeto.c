@@ -190,9 +190,9 @@ static void imprimirTexto(void)
     printf("Texto impresso com sucesso.\n");
 
     // incluir AvancaPapel e Corte no final
-    AvancaPapel();
+    AvancaPapel(2);
     
-    Corte();
+    Corte(2);
 
   
 }
@@ -200,22 +200,22 @@ static void imprimirTexto(void)
 static void imprimirQRCode(void)
 {
     // TODO: solicitar conte�do do QRCode e chamar ImpressaoQRCode(texto, 6, 4)
-    ImpressaoQRCode(texto, 6, 4);
+    ImpressaoQRCode("texto", 6, 4);
     printf("QRcode impresso com sucesso.\n");
     // incluir AvancaPapel e Corte no final
-    AvancaPapel();
-    Corte();
+    AvancaPapel(2);
+    Corte(2);
     
 }
 
-static void imprimirCodigoBarras(int tipo)
+static void imprimirCodigoBarras(void)
 {
     // TODO: usar ImpressaoCodigoBarras(8, "{A012345678912", 100, 2, 3)
     // incluir AvancaPapel e Corte no final
+	ImpressaoCodigoBarras(0, "12345678901", 80, 2, 1);
+    /*int TCB;//tipo de codigo de barras
 
-    int TCB;//tipo de codigo de barras
-
-    switch(tipo)
+    switch()
     {
         case 0: // UPC-A
             TCB = ImpressaoCodigoBarras(0, "12345678901", 80, 2, 1);
@@ -261,28 +261,28 @@ static void imprimirCodigoBarras(int tipo)
     }
     else{
         printf("Erro ao imprimir (codigo: %d)\n", TCB);
-    }
+    }*/
         
-    AvancaPapel();
-    Corte();
+    AvancaPapel(2);
+    Corte(2);
 }
 
 static void imprimirXMLSAT(void)
 {
     // TODO: ler o arquivo ./XMLSAT.xml e enviar via ImprimeXMLSAT
-    ImprimeXMLSAT("./XMLSAT.xml")
+    ImprimeXMLSAT("path=C:/Users/murilo_monteiro/Desktop/Projeto_Final-main/XMLSAT.xml", 455);
     // incluir AvancaPapel e Corte no final
-    AvancaPapel();
-    Corte();
+    AvancaPapel(2);
+    Corte(2);
 }
 
 static void imprimirXMLCancelamentoSAT(void)
 {
     // TODO: ler o arquivo ./CANC_SAT.xml e chamar ImprimeXMLCancelamentoSAT
-    ImprimeXMLCancelamentoSAT("./CANC_SAT.xml");
+    ImprimeXMLCancelamentoSAT("path=C:/Users/murilo_monteiro/Desktop/Projeto_Final-main/CANC_SAT.xml","Q5DLkpdRijIRGY6YSSNsTWK1TztHL1vD0V1Jc4spo/CEUqICEb9SFy82ym8EhBRZjbh3btsZhF+sjHqEMR159i4agru9x6KsepK/q0E2e5xlU5cv3m1woYfgHyOkWDNcSdMsS6bBh2Bpq6s89yJ9Q6qh/J8YHi306ce9Tqb/drKvN2XdE5noRSS32TAWuaQEVd7u+TrvXlOQsE3fHR1D5f1saUwQLPSdIv01NF6Ny7jZwjCwv1uNDgGZONJdlTJ6p0ccqnZvuE70aHOI09elpjEO6Cd+orI7XHHrFCwhFhAcbalc+ZfO5b/+vkyAHS6CYVFCDtYR9Hi5qgdk31v23w==",193);
     // incluir AvancaPapel e Corte no final
-    AvancaPapel();
-    Corte();
+    AvancaPapel(2);
+    Corte(2);
     
 	/*usar assinatura abaixo:
         "Q5DLkpdRijIRGY6YSSNsTWK1TztHL1vD0V1Jc4spo/CEUqICEb9SFy82ym8EhBRZ"
