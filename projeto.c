@@ -103,7 +103,7 @@ static void liberarBiblioteca(void)
 static void exibirMenu(void)
 {
     // TODO: implementar exibi��o do menu principal com as op��es de impress�o
-    printf("1 - Configurar Conexao    \n2 - Abrir Conexao    \n3 - Impressao Texto\n4 - Impressao QRCode\n5 - Impressao Cod Barras\n6 - Impressao XML SAT   \n7 - Impressao XML Canc SAT  \n8 - Abrir Gaveta Elgin  \n9 - Abrir Gaveta  \n10 - Sinal Sonoro \n0 - Fechar Conexao e Sair \n");
+    printf("1 - Configurar Conexao    \n2 - Abrir Conexao    \n3 - Impressao Texto\n4 - Impressao QRCode\n5 - Impressao Cod Barras\n6 - Impressao XML SAT   \n7 - Impressao XML Canc SAT  \n8 - Abrir Gaveta Elgin  \n9 - Abrir Gaveta  \n10 - Sinal Sonoro \n0 - Fechar Conexao e Sair \n\n");
 }
 
 static void configurarConexao(void)
@@ -112,9 +112,9 @@ static void configurarConexao(void)
     printf("Digite o tipo da impressora: \n");
     scanf("%i", &g_tipo);
     printf("Digite o modelo da impressora: \n");
-    scanf("%c", &g_modelo);
-    printf("Digite o tipo de conexão da impressora: \n");
-    scanf("%c", &g_conexao);
+    scanf("%s", &g_modelo);
+    printf("Digite o tipo de conexao da impressora: \n");
+    scanf("%s", &g_conexao);
     printf("Digite o parametro da impressora: \n");
     scanf("%i", &g_parametro);
 }
@@ -129,7 +129,7 @@ static void abrirConexao(void)
     int retorno = AbreConexaoImpressora(g_tipo, g_modelo, g_conexao, g_parametro);
 
     if(retorno != 0){
-        printf("Erro ao abrir conexao.", retorno);
+        printf("Erro ao abrir conexao. \n", retorno);
         g_conectada = 0;
         return;
     }
@@ -324,9 +324,10 @@ int main(void)
     while (fecharmenu==0) {
         
         //construir o menu e chamar as fun�oes aqui!!!
-        printf("Selecione uma opção: \n");
+        printf("\n========================================================================================================================\n\nSelecione uma opcao: \n\n"); 
         exibirMenu();
         scanf("%i", &opcao);
+        printf("\n========================================================================================================================\n\n");
         switch (opcao)
         {
         case 1:
@@ -336,27 +337,34 @@ int main(void)
             abrirConexao();
             break;
         case 3:
+        	carregarFuncoes();
             imprimirTexto();
             break;
         case 4:
+        	carregarFuncoes();
             imprimirQRCode();
             break;
         case 5:
+        	carregarFuncoes();
             imprimirCodigoBarras();
             break;
         case 6:
+        	carregarFuncoes();
             imprimirXMLSAT();
             break;
         case 7:
+        	carregarFuncoes();
             imprimirXMLCancelamentoSAT();
             break;
         case 8:
+        	carregarFuncoes();
             abrirGavetaElginOpc();
             break;
         case 9:
+        	carregarFuncoes();
             abrirGavetaOpc();
             break;
-        case 10:
+        case 10:carregarFuncoes();
             emitirSinalSonoro();
             break;
         case 0:
