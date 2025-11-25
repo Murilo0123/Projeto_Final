@@ -98,72 +98,72 @@ static void liberarBiblioteca(void)
     }
 }
 
-/* ======================= Fun��es a serem implementadas pelos alunos ======================= */
+/* ======================= Funcoes a serem implementadas pelos alunos ======================= */
 
 static void exibirMenu(void)
 {
-    // TODO: implementar exibi��o do menu principal com as op��es de impress�o
+    // TODO: implementar exibicao do menu principal com as opcoes de impressao
     printf("1 - Configurar Conexao    \n2 - Abrir Conexao    \n3 - Impressao Texto\n4 - Impressao QRCode\n5 - Impressao Cod Barras\n6 - Impressao XML SAT   \n7 - Impressao XML Canc SAT  \n8 - Abrir Gaveta Elgin  \n9 - Abrir Gaveta  \n10 - Sinal Sonoro \n0 - Fechar Conexao e Sair \n\n");
 }
 
 static void configurarConexao(void)
 {
-    // TODO: pedir ao usu�rio tipo, modelo, conex�o e par�metro
-    printf("Digite o tipo da impressora: \n");
-    scanf("%i", &g_tipo);
+    // TODO: pedir ao usuario tipo, modelo, conexao e parametro
+    printf("Digite o tipo da impressora: \n"); 
+    scanf("%i", &g_tipo); // recebe o tipo da impressora
     printf("Digite o modelo da impressora: \n");
-    scanf("%s", &g_modelo);
+    scanf("%s", &g_modelo); // recebe o modelo da impressora
     printf("Digite o tipo de conexao da impressora: \n");
-    scanf("%s", &g_conexao);
+    scanf("%s", &g_conexao); // recebe o tipo de conexao da impressora
     printf("Digite o parametro da impressora: \n");
-    scanf("%i", &g_parametro);
+    scanf("%i", &g_parametro); // recebe o tipo de parametro da impressora
 }
 
 static void abrirConexao(void)
 {
-    if(!AbreConexaoImpressora){
-        printf("A funcao AbreConexaoImpressora nao foi carregada!\n");
+    if(!AbreConexaoImpressora){ //verifica se a impressora esta conectada
+        printf("A funcao AbreConexaoImpressora nao foi carregada!\n"); 
         return;
     } 
 
-    int retorno = AbreConexaoImpressora(g_tipo, g_modelo, g_conexao, g_parametro);
+    int retorno = AbreConexaoImpressora(g_tipo, g_modelo, g_conexao, g_parametro);// pega os parametros que estao acima
 
     if(retorno != 0){
-        printf("Erro ao abrir conexao. \n", retorno);
+        printf("Erro ao abrir conexao. \n", retorno); // erro ao realizar a conexao com a impressora quando retorna um valor diferente de 0
         g_conectada = 0;
         return;
     }
 
-    printf("Conexao estabelecida com sucesso!\n");
+    printf("Conexao estabelecida com sucesso!\n"); // a conexao com a impressora foi estabelecida pois o valor retornado foi 0
     g_conectada = 1;
 }
 
 static void fecharConexao(void)
 {
-    if (!FechaConexaoImpressora) {
+    if (!FechaConexaoImpressora) { // erro ao carregar a função FechaConexaoImpressora
         printf("A funcao FechaConexaoImpressora nao foi carregada!\n");
         return;
     }
 
-    if (!g_conectada) {
+    if (!g_conectada) { // verifica se a impressora esta conectada
         printf("A impressora ja esta desconectada.\n");
         return;
     }
 
     int retorno = FechaConexaoImpressora();
 
-    if (retorno != 0) {
+    if (retorno != 0) { // erro ao fechar a conexao com a impressora caso valor retornado seja diferente de 0
         printf("Erro ao fechar conexao.", retorno);
         return;
     }
 
-    printf("Conexao encerrada com sucesso!\n");
+    printf("Conexao encerrada com sucesso!\n"); // encerra a conexao pois o valor retornado foi 0
     g_conectada = 0;
 }
 
 static void imprimirTexto(void)
 {
-    // TODO: solicitar texto do usu�rio e chamar ImpressaoTexto
+    // TODO: solicitar texto do usuario e chamar ImpressaoTexto
     if(!g_conectada){
         printf("Nao ha conexao com a impressora.\n");
         return;
@@ -199,7 +199,7 @@ static void imprimirTexto(void)
 
 static void imprimirQRCode(void)
 {
-    // TODO: solicitar conte�do do QRCode e chamar ImpressaoQRCode(texto, 6, 4)
+    // TODO: solicitar conteudo do QRCode e chamar ImpressaoQRCode(texto, 6, 4)
     ImpressaoQRCode("texto", 6, 4);
     printf("QRcode impresso com sucesso.\n");
     // incluir AvancaPapel e Corte no final
@@ -312,7 +312,7 @@ static void emitirSinalSonoro(void)
     SinalSonoro(4, 50, 5);
 }
 
-/* ======================= Fun��o principal ======================= */
+/* ======================= Funcao principal ======================= */
 int main(void)
 {
     if (!carregarFuncoes()) {
@@ -323,7 +323,7 @@ int main(void)
     int fecharmenu=0;
     while (fecharmenu==0) {
         
-        //construir o menu e chamar as fun�oes aqui!!!
+        //construir o menu e chamar as funcoes aqui!!!
         printf("\n========================================================================================================================\n\nSelecione uma opcao: \n\n"); 
         exibirMenu();
         scanf("%i", &opcao);
