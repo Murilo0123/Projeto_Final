@@ -1,22 +1,81 @@
-# Projeto Final — Impressora
+# 🖨️ Integração C com Impressora Elgin i9
+### *(Projeto Impressora)*
+---
 
-## Descrição  
-Este é um projeto em C que simula o funcionamento de uma impressora térmica.
+## 📘 Sobre o Projeto
+
+Este projeto foi desenvolvido com o objetivo de criar uma aplicação C capaz de se comunicar com a impressora **Elgin i9**, utilizando comandos **ESC/POS**, testes de impressão e interação via porta de comunicação.  
+O trabalho faz parte da disciplina de **Construção de algoritmos e programação**.
+
+---
+
+## 🧰 Tecnologias Utilizadas
+
+- **C**
+- **IntelliJ IDEA**
+- **Biblioteca ESC/POS**
+- **Driver/SDK da Elgin i9**
 
 
-## Tecnologias usadas 
-- Linguagem C  
-- Dev-C++
-- Visual Studio Code
+---
+
+## 📁 Estrutura do Projeto
+
+/src → Código-fonte principal
+/lib → Bibliotecas e dependências externas
+/docs → Materiais adicionais e documentação
+/examples → Testes e arquivos de demonstração
 
 
-## Instruções de Uso
+---
 
-1. Tenha uma impressora térmica;
-2. Abra o código no Dev-C++ ou em algum compilador C;
-3. Simule o uso.
+## ⚙️ Instalação e Execução
 
+### 🔽 1. Baixar o Projeto do GitHub
+1. Acesse o repositório.
+2. Clique no botão **Code**.
+3. Selecione **Download ZIP**.
+4. Aguarde o download.
 
-## Explicação do projeto
+### 📦 2. Extrair o Arquivo ZIP
+1. Vá até o local onde o arquivo foi salvo.
+2. Clique com o botão direito → **Extrair aqui** / **Extract All**.
+3. Será criada uma nova pasta com os arquivos.
 
-O código é um programa em C que faz a leitura de dados, processa as informações e mostra o resultado na tela. Usamos funções para organizar o código, condicionais (If e else/Switch case) para tomar decisões e laços de repetição (While) onde necessário, também utilizamos variáveis e estruturas básicas para armazenar os dados temporariamente. Em resumo, o programa segue uma lógica simples: entrada -> processamento -> saída.
+### 🧭 3. Importar no IntelliJ IDEA
+1. Abra o **IntelliJ IDEA**.
+2. Clique em **Open**.
+3. Escolha a pasta extraída.
+4. Aguarde o carregamento.
+5. Caso apareça, clique em **Import Project** (Maven/Gradle).
+6. Verifique o SDK em:
+   - *File → Project Structure → Project SDK → C*
+7. Abra o arquivo `projeto.c` e clique em ▶️ **Run**.
+
+---
+
+## 🧪 Testes
+
+- Teste de conexão com a impressora
+- Impressão de texto simples
+- Envio de comandos **ESC/POS**
+- Verificação das portas de comunicação
+- Teste com várias mensagens
+
+---
+
+## 📚 Documentação Adicional
+
+- Manual da Impressora **Elgin i9**
+- Documentação do **SDK Elgin**
+- Referência **ESC/POS**
+
+---
+
+## 👥 Autores  
+
+- Igor Fernandes Almeida
+- Kauan Santos De Oliveira
+- Mateus Fernandes Mano
+- Murilo Monteiro Silva
+- Rafael Dos Santos Borges Casemiro
